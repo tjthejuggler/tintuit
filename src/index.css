@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 199 89% 48%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 199 89% 48%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 199 89% 48%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 199 89% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-[hsl(var(--border))];
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .slider-track {
+    @apply h-2 rounded-full bg-gray-200 dark:bg-gray-700;
+  }
+
+  .slider-thumb {
+    @apply h-6 w-6 rounded-full bg-primary-500 shadow-lg ring-2 ring-primary-500 transition-all;
+    @apply hover:ring-4 focus:outline-none focus:ring-4;
+  }
+
+  .confidence-label {
+    @apply text-sm font-medium text-gray-600 dark:text-gray-300;
+  }
+
+  .paper-card {
+    @apply rounded-lg border bg-card p-6 shadow-sm transition-all duration-200;
+    @apply hover:shadow-md dark:border-gray-800;
+  }
+
+  .question-card {
+    @apply space-y-4 rounded-lg border bg-card p-6 shadow-sm;
+    @apply dark:border-gray-800;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-md bg-primary-500 px-4 py-2;
+    @apply text-sm font-medium text-white shadow-sm transition-colors;
+    @apply hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+    @apply disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-md bg-white px-4 py-2;
+    @apply text-sm font-medium text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300;
+    @apply hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-500;
+    @apply dark:bg-gray-800 dark:text-gray-200 dark:ring-gray-700 dark:hover:bg-gray-700;
+    @apply disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .input-field {
+    @apply block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm;
+    @apply ring-1 ring-inset ring-gray-300 placeholder:text-gray-400;
+    @apply focus:ring-2 focus:ring-inset focus:ring-primary-500;
+    @apply dark:bg-gray-800 dark:text-white dark:ring-gray-700;
+    @apply sm:text-sm sm:leading-6;
+  }
+
+  .select-field {
+    @apply block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900;
+    @apply ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-primary-500;
+    @apply dark:bg-gray-800 dark:text-white dark:ring-gray-700;
+    @apply sm:text-sm sm:leading-6;
+  }
+}
+
+/* Custom scrollbar styles */
+@media (min-width: 768px) {
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-gray-300 dark:bg-gray-600;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400 dark:bg-gray-500;
+  }
+}
+
+/* Loading spinner animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}

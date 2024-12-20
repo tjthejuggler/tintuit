@@ -1,0 +1,26 @@
+{
+  "name": "tintuit-question-generator",
+  "version": "0.1.0",
+  "description": "An MCP server that uses Anthropic&#39;s Claude API to generate study questions from research papers, validate answers, and provide explanations for the TinTuit application",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "tintuit-question-generator": "./build/index.js"
+  },
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\"",
+    "prepare": "npm run build",
+    "watch": "tsc --watch",
+    "inspector": "npx @modelcontextprotocol/inspector build/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "0.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "typescript": "^5.3.3"
+  }
+}

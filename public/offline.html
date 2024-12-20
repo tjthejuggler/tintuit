@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TinTuit - Offline</title>
+    <style>
+        :root {
+            color-scheme: light dark;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #0f172a;
+                color: #f8fafc;
+            }
+        }
+
+        .container {
+            padding: 2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #0ea5e9;
+        }
+
+        p {
+            font-size: 1.125rem;
+            line-height: 1.75;
+            margin-bottom: 2rem;
+            color: #475569;
+        }
+
+        .icon {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            color: #0ea5e9;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: #0ea5e9;
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+
+        .button:hover {
+            background-color: #0284c7;
+        }
+
+        .offline-message {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: #e0f2fe;
+            border-radius: 0.5rem;
+            color: #0369a1;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .offline-message {
+                background-color: #0c4a6e;
+                color: #e0f2fe;
+            }
+        }
+
+        .features-list {
+            text-align: left;
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .features-list li {
+            margin: 0.5rem 0;
+            color: #475569;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .features-list li {
+                color: #94a3b8;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">📡</div>
+        <h1>You're Offline</h1>
+        <p>Don't worry! You can still access your cached questions and continue learning. We'll sync your progress when you're back online.</p>
+        <div class="offline-message">
+            <p>TinTuit works offline! Available features while offline:</p>
+            <ul class="features-list">
+                <li>Access previously loaded papers</li>
+                <li>Continue study sessions with cached questions</li>
+                <li>Review your past answers and progress</li>
+                <li>Track your daily streak</li>
+            </ul>
+            <p>Your progress will automatically sync when you're back online.</p>
+        </div>
+        <a href="/" class="button">Try Again</a>
+    </div>
+    <script>
+        // Check connection status and redirect when online
+        window.addEventListener('online', () => {
+            window.location.reload();
+        });
+    </script>
+</body>
+</html>
